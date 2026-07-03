@@ -198,6 +198,7 @@ namespace {
     $sourceFiles = [
         __DIR__ . '/../src/Dto/Config.php',
         __DIR__ . '/../src/Dto/Policy.php',
+        __DIR__ . '/../src/Exception/AccessDeniedException.php',
         __DIR__ . '/../src/Exception/PolicyAddException.php',
         __DIR__ . '/../src/Grpc/Uam/Api/ApiClient.php',
         __DIR__ . '/../src/Service/UAMService.php',

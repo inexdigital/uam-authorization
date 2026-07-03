@@ -6,6 +6,7 @@ namespace Inexdigital\UamAuthorization\Service;
 
 use Casbin\Enforcer as CasbinEnforcer;
 use Casbin\Exceptions\CasbinException;
+use Inexdigital\UamAuthorization\Exception\AccessDeniedException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -75,5 +76,17 @@ class Enforcer
         }
 
         return false;
+    }
+
+    /**
+     * @throws AccessDeniedException
+     */
+    public function enforceByUserOrFail(string $name, UserInterface $user, object $obj): void
+    {
+        if ($this->enforceByUser($name, $user, $obj)) {
+            return;
+        }
+
+        throw AccessDeniedException::create($name, $user);
     }
 }

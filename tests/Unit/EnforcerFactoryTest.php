@@ -38,7 +38,7 @@ final class EnforcerFactoryTest extends TestCase
             Policy::createFromArray(new RepeatedField(['p', 'read', 'orders', 'expr-1'])),
         ]);
         $uamService = $this->createMock(UAMService::class);
-        $uamService->method('getCConfig')->willReturn($config);
+        $uamService->method('getConfig')->willReturn($config);
         $logger = new SpyLogger();
         $factory = new EnforcerFactory($uamService, $logger);
         $this->expectException(PolicyAddException::class);
