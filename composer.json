@@ -7,7 +7,7 @@
     "php": "^8.2",
     "ext-grpc": "*",
     "casbin/casbin": "^3.25",
-    "google/protobuf": "^4.30",
+    "google/protobuf": "^4.30 || 5.36.2",
     "grpc/grpc": "^1.81",
     "symfony/security-core": "^5.4 || ^6.4 || ^7.0"
   },
