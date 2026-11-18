@@ -7,11 +7,12 @@ namespace Inexdigital\UamAuthorization\Factory;
 use Casbin\Enforcer;
 use Casbin\Model\Model;
 use Inexdigital\UamAuthorization\Exception\PolicyAddException;
+use Inexdigital\UamAuthorization\Service\EnforcerInterface;
 use Inexdigital\UamAuthorization\Service\UAMService;
 use Psr\Log\LoggerInterface;
 use Throwable;
 
-class EnforcerFactory
+class EnforcerFactory implements EnforcerFactoryInterface
 {
     public function __construct(
         private readonly UAMService $uamService,
@@ -21,10 +22,10 @@ class EnforcerFactory
 
     /**
      * Summary of create
-     * @return Enforcer
+     * @return EnforcerInterface
      * @throws PolicyAddException
      */
-    public function create(): Enforcer
+    public function create(): EnforcerInterface
     {
         $config = $this->uamService->getConfig();
         $enforcer = new Enforcer();

@@ -10,7 +10,7 @@ use Inexdigital\UamAuthorization\Exception\AccessDeniedException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class Enforcer
+class Enforcer implements EnforcerInterface
 {
     public function __construct(
         private readonly CasbinEnforcer $enforcer,
